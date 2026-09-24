@@ -1,0 +1,543 @@
+/* ==================================
+   CSS Variables & Theming
+================================== */
+:root {
+    --bg-primary: #0B0B10;
+    --bg-secondary: #111118;
+    --bg-tertiary: #171720;
+    
+    --accent-soft: #F5D6DC;
+    --accent-primary: #E9B8C1;
+    --accent-deep: #C98F9B;
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #E8E4E5;
+    --text-muted: #A9A3A7;
+}
+
+/* ==================================
+   Base & Reset
+================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.8;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ==================================
+   Typography
+================================== */
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.massive-text {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.large-text { font-size: clamp(1.8rem, 4vw, 3rem); }
+.accent-text { color: var(--accent-primary); }
+.accent-deep-text { color: var(--accent-deep); }
+.text-muted { color: var(--text-muted); font-size: 1.2rem; }
+.highlight { font-weight: 600; color: var(--accent-soft); }
+
+.margin-top { margin-top: 2rem; }
+.margin-bottom { margin-bottom: 2rem; }
+
+/* ==================================
+   Layout & Sections
+================================== */
+.full-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-bg { background-color: var(--bg-secondary); }
+.minimal-dark { background-color: #050508; }
+.minimal-clean { background: radial-gradient(circle, var(--bg-tertiary) 0%, var(--bg-primary) 100%); }
+.warm-bg { background: linear-gradient(to top, #1a1214, var(--bg-primary)); }
+
+/* ==================================
+   Animations System
+================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 2s; }
+.delay-3 { animation-delay: 3.5s; }
+.delay-4 { animation-delay: 5s; }
+.delay-5 { animation-delay: 6.5s; }
+.delay-6 { animation-delay: 8s; }
+.delay-7 { animation-delay: 9.5s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ==================================
+   Start Overlay (شاشة البداية)
+================================== */
+.start-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: var(--bg-primary);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease, visibility 1.5s;
+}
+
+.start-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.start-btn {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    animation: pulseStart 2s infinite;
+}
+
+.start-btn:hover {
+    background: rgba(233, 184, 193, 0.1);
+}
+
+@keyframes pulseStart {
+    0% { box-shadow: 0 0 0 0 rgba(233, 184, 193, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(233, 184, 193, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 184, 193, 0); }
+}
+
+/* ==================================
+   Intro & Scroll Indicator
+================================== */
+.particles-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(233, 184, 193, 0.03) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.cinematic-intro .content { z-index: 1; }
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.scroll-arrow {
+    width: 16px;
+    height: 16px;
+    border-bottom: 2px solid var(--accent-primary);
+    border-left: 2px solid var(--accent-primary);
+    transform: rotate(-45deg);
+    margin-top: 10px;
+    animation: arrowDown 2s infinite ease-in-out;
+}
+
+@keyframes arrowDown {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(15px) rotate(-45deg); opacity: 0; }
+}
+
+/* ==================================
+   Cards Section
+================================== */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    width: 100%;
+    margin: 3rem 0;
+}
+
+.card {
+    background: rgba(23, 23, 32, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(23, 23, 32, 0.8);
+    border-color: rgba(233, 184, 193, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* ==================================
+   Images & Parallax (تعديل المربع)
+================================== */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 4 / 5; /* يحافظ على أبعاد المربع */
+    margin: 3rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-tertiary);
+}
+
+.glow-effect {
+    position: absolute;
+    top: -20px; left: -20px; right: -20px; bottom: -20px;
+    background: var(--accent-primary);
+    filter: blur(50px);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.parallax-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(20%) contrast(1.1);
+    will-change: transform;
+}
+
+.has-bg-image {
+    background-image: url('../assets/first-day.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(11, 11, 16, 0.8), rgba(11, 11, 16, 0.95));
+    z-index: 1;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==================================
+   Buttons & Interactions
+================================== */
+.buttons-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 80px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.primary-btn {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.primary-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    position: relative;
+    z-index: 50;
+}
+
+/* ==================================
+   Music Control
+================================== */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(23, 23, 32, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.music-btn.playing {
+    animation: pulse 2s infinite;
+    border-color: var(--accent-deep);
+}
+
+/* ==================================
+   Toasts (Playful Messages)
+================================== */
+#toast-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 99;
+}
+
+.toast-msg {
+    position: absolute;
+    background: var(--bg-tertiary);
+    color: var(--accent-soft);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: toastAnim 2s forwards;
+}
+
+@keyframes toastAnim {
+    10% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ==================================
+   Celebration Screen
+================================== */
+.celebration-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-primary);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+}
+
+.celebration-screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.celebration-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.celebration-content p {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+}
+
+/* إصلاح الترتيب: استخدام animation-name يحافظ على الـ delay */
+.celebration-screen.active .celeb-text {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.heart-icon {
+    font-size: 3rem;
+    margin-top: 2rem;
+    opacity: 0;
+}
+
+.celebration-screen.active .heart-icon {
+    animation-name: fadeIn, beat;
+    animation-duration: 2s, 1s;
+    animation-fill-mode: forwards, both;
+    animation-iteration-count: 1, infinite;
+    animation-delay: 9.5s, 9.5s;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* زر الرجوع */
+.return-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    margin-top: 3rem;
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.celebration-screen.active .return-btn {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 9.5s;
+    pointer-events: all;
+}
+
+.return-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* حركة طيران النقط للأعلى */
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* ==================================
+   Custom Cinematic Cursor
+================================== */
+@media (pointer: fine) {
+    body, button, a, .card, .return-btn, .start-btn {
+        cursor: none !important;
+    }
+
+    .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-primary);
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 999999;
+        pointer-events: none;
+    }
+
+    .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(233, 184, 193, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 999998;
+        pointer-events: none;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    .cursor-outline.hovering {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(233, 184, 193, 0.1);
+        border-color: transparent;
+    }
+}
+
+/* ==================================
+   Responsive Design
+================================== */
+@media (max-width: 768px) {
+    .full-screen { padding: 1.5rem; }
+    p { margin-bottom: 1rem; }
+    .buttons-container { flex-direction: column; width: 100%; }
+    button { width: 80%; max-width: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
