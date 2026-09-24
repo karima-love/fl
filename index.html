@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاجة من قلبي</title>
+    <!-- استدعاء خط Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- ملف الستايل -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- شاشة البداية السينمائية لضمان تشغيل الموسيقى -->
+    <div id="start-overlay" class="start-overlay">
+        <button id="start-btn" class="start-btn">ابدأي من هنا ✨</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- موسيقى الخلفية -->
+    <audio id="bg-music" src="assets/Bg-music.mp3" loop></audio>
+    <button id="music-control" class="music-btn" aria-label="تشغيل الموسيقى">
+        <span class="icon">🎵</span>
+    </button>
+
+    <main>
+        <!-- Section 1: Cinematic Intro -->
+        <section class="cinematic-intro full-screen">
+            <div class="particles-bg" id="particles"></div>
+            <div class="content reveal-sequence">
+                <h1 class="fade-text delay-1">ممكن تاخدي دقيقة بس؟</h1>
+                <p class="fade-text delay-2">انا عايز اقولك حاجة من غير ما احاول ابرر او ادافع عن نفسي.</p>
+                <p class="fade-text delay-3 accent-text">حاجة من قلبي ليكي.</p>
+            </div>
+            <div class="scroll-indicator fade-text delay-4">
+                <span>انزلي براحتك...</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: حاجة مهمة -->
+        <section class="important-thing full-screen">
+            <div class="content">
+                <h2 class="reveal">انا عايزك تعرفي حاجة مهمة</h2>
+                <p class="reveal">انا عارف ان في حاجات حصلت خلتك تحسي اني مبقتش عايز اقعد معاكي زي الاول.</p>
+                <p class="reveal">وممكن تصرفاتي فعلا خلتك تشوفي اني بعيد.</p>
+                <p class="reveal">وممكن حاجات صغيرة بالنسبالي كانت بالنسبالك معناها اكبر بكتير.</p>
+                <p class="reveal">وممكن في لحظات سألتي نفسك هو انا لسه عايز اقضي وقت معاها؟</p>
+                <p class="reveal highlight">ولو ده كان الاحساس اللي وصلك مني، فانا مقدر قد ايه ده ممكن يكون وجعك.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: الحقيقة -->
+        <section class="the-truth full-screen dark-bg">
+            <div class="content">
+                <h2 class="reveal large-text">بس الحقيقة...</h2>
+                <p class="reveal massive-text">مش كده.</p>
+                <div class="statements">
+                    <p class="reveal">انا لسه عايز اقعد معاكي.</p>
+                    <p class="reveal">لسه عايز وجودك.</p>
+                    <p class="reveal">لسه عايز اسمعك.</p>
+                    <p class="reveal">لسه عايز اعرف يومك كان عامل ازاي.</p>
+                    <p class="reveal">لسه عايز نحكي لبعض.</p>
+                    <p class="reveal">لسه عايز نضحك على حاجات ملهاش لازمة.</p>
+                </div>
+                <div class="deep-paragraph reveal">
+                    <p>انشغالي مش معناه اني مش عايزك.</p>
+                    <p>وسكوتي مش معناه اني مبقتش محتاج وجودك.</p>
+                    <p>ولو في يوم مقدرتش اديكي الوقت اللي نفسي اديهولك، ده مش معناه ابدا ان مكانتك عندي اتغيرت.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: الهامش -->
+        <section class="not-margin full-screen">
+            <div class="content">
+                <h2 class="reveal accent-deep-text">انتي مش حاجة على هامش يومي.</h2>
+                <p class="reveal">انا مش عايزك تحسي انك لازم تستني لما كل حاجة تخلص عشان يبقى ليكي مكان.</p>
+                <p class="reveal">انتي ليكي مكان في حياتي حتى وسط الزحمة.</p>
+                <p class="reveal">وفي وسط كل حاجة بتحصل، وجودك لسه حاجة انا عايزها.</p>
+                <p class="reveal">مش عشان لازم.</p>
+                <p class="reveal">ومش عشان المفروض.</p>
+                <p class="reveal highlight">عشان انا فعلا عايزك تكوني موجودة.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: الوقت معاكي -->
+        <section class="time-with-you full-screen">
+            <div class="content">
+                <h2 class="reveal">انا لسه عايز الوقت معاكي.</h2>
+                
+                <div class="cards-container">
+                    <div class="card reveal"><div class="card-icon">☕</div><p>قعدة من غير سبب</p></div>
+                    <div class="card reveal"><div class="card-icon">💬</div><p>كلام كتير</p></div>
+                    <div class="card reveal"><div class="card-icon">🌅</div><p>نحكي لبعض يومنا</p></div>
+                    <div class="card reveal"><div class="card-icon">✨</div><p>نضحك على حاجات ملهاش لازمة</p></div>
+                    <div class="card reveal"><div class="card-icon">🤍</div><p>نسكت واحنا قاعدين جنب بعض</p></div>
+                    <div class="card reveal"><div class="card-icon">🌿</div><p>نقضي وقت عادي... بس سوا</p></div>
+                </div>
+
+                <div class="card-paragraph reveal">
+                    <p>انا مش محتاج سبب كبير عشان ابقى عايز اقعد معاكي.</p>
+                    <p>مش لازم نعمل حاجة مميزة.</p>
+                    <p>ممكن نقعد ونتكلم. ممكن نحكي. ممكن نضحك. ممكن حتى نقعد ساكتين.</p>
+                    <p class="accent-text">الفكرة مش هنقضي الوقت ازاي. الفكرة اننا نقضيه سوا.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: المسافة -->
+        <section class="the-distance full-screen minimal-dark">
+            <div class="content">
+                <h2 class="reveal massive-text">انا مش عايز المسافة دي تكبر بينا.</h2>
+                <p class="reveal">انا مش عايز موقف او كام يوم وحشين يخلونا نحس اننا بقينا غرب عن بعض.</p>
+                <p class="reveal">مش عايز كل مرة نسكت فيها المسافة تزيد شوية.</p>
+                <p class="reveal">ومش عايزك تبصي ليا وتحسي ان الشخص اللي كان بيحب يقعد معاكي مبقاش موجود.</p>
+                
+                <div class="short-statements margin-top reveal">
+                    <p>هو موجود.</p>
+                    <p>ولسه عايزك.</p>
+                    <p class="accent-deep-text">ولسه عايزنا.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: مش كلام حلو -->
+        <section class="not-just-words full-screen">
+            <div class="content">
+                <h2 class="reveal">انا مش بعمل الموقع ده عشان اقول كلمتين حلوين وخلاص.</h2>
+                <p class="reveal">انا عارف ان الكلام لوحده مش كفاية.</p>
+                <p class="reveal">ومش عايز كل اللي اقوله هنا يبقى مجرد كلام حلو ويتنسي.</p>
+                <p class="reveal">انا عايز اللي انتي تحسيه معايا يبقى مختلف عن الاحساس اللي وصلك الفترة دي.</p>
+                <p class="reveal">عايزك تحسي ان وجودك مرحب بيه.</p>
+                <p class="reveal">وان قعدتنا سوا مش حاجة انا بعملها بالعافية.</p>
+                <p class="reveal highlight">انا عايزها.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: ابسط حاجة -->
+        <section class="simple-thing full-screen minimal-clean">
+            <div class="content">
+                <p class="reveal text-muted">ولو مفيش كلام كفاية...</p>
+                <p class="reveal text-muted margin-bottom">فخليني اقولك ابسط حاجة.</p>
+                <h2 class="reveal massive-text accent-primary">انا لسه عايز اقعد معاكي.</h2>
+                <p class="reveal">مش عشان لازم.</p>
+                <p class="reveal">مش عشان المفروض.</p>
+                <p class="reveal highlight">عشان انا عايز.</p>
+                <p class="reveal margin-top">وعشان وجودك بالنسبالي لسه له مكان.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: اول يوم جامعة -->
+        <section class="university-day full-screen">
+            <div class="content">
+                <p class="reveal text-muted">وعلى فكرة...</p>
+                <h2 class="reveal">فاكرة اول يوم جامعة؟</h2>
+                
+                <div class="image-wrapper reveal">
+                    <div class="glow-effect"></div>
+                    <img src="assets/first-day.jpg" alt="اول يوم جامعة" class="parallax-img">
+                </div>
+
+                <p class="reveal">انا لسه فاكر شكلك اليوم ده.</p>
+                <p class="reveal">كنت حلوة اوي.</p>
+                <p class="reveal">بجد.</p>
+                <p class="reveal">والغريب ان الصورة دي لحد دلوقتي مبتروحش من دماغي.</p>
+                
+                <div class="margin-top reveal">
+                    <p>يمكن عشان اليوم ده كان بداية حاجة جديدة في حياتك.</p>
+                    <p>بس انا كل اللي فاكره منه...</p>
+                    <p class="accent-text">شكلك.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: الطمأنينة -->
+        <section class="reassurance full-screen">
+            <div class="content">
+                <h2 class="reveal">مكانك عندي مش بيتغير مع زحمة اليوم.</h2>
+                <p class="reveal">حتى لو يومي اتغير، انتي مكانك عندي مش بيتغير.</p>
+                <p class="reveal">حتى لو انشغلت، ده مش معناه اني بطلت احتاج وجودك.</p>
+                <p class="reveal">حتى لو في ايام مبعرفش اكون حاضر بالشكل اللي نفسي فيه، ده مش معناه اني مش عايز اكون معاكي.</p>
+                <p class="reveal margin-top">انا لسه عايزك في تفاصيل يومي.</p>
+                <p class="reveal">ولسه عايز وجودك.</p>
+                <p class="reveal">ولسه عايزنا.</p>
+                <p class="reveal highlight margin-top">انا بس محتاج اكون احسن في اني اوصلك ده.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: العودة للصورة -->
+        <section class="photo-return full-screen has-bg-image">
+            <div class="dark-overlay"></div>
+            <div class="content relative-z">
+                <p class="reveal text-muted">وبالمناسبة...</p>
+                <p class="reveal">انا لسه فاكر شكلك في اول يوم جامعة.</p>
+                <p class="reveal">كنت حلوة اوي.</p>
+                <p class="reveal">والصورة دي لحد دلوقتي مبتروحش من دماغي.</p>
+                <p class="reveal">يمكن عشان في حاجات بسيطة بتفضل عالقة في دماغنا من غير ما نعرف ليه.</p>
+                
+                <div class="margin-top reveal">
+                    <p>بس اللي انا عارفه...</p>
+                    <p>انك لسه بتلفتي نظري.</p>
+                    <p>ولسه وجودك بيفرق.</p>
+                    <p class="accent-text large-text">ولسه انا عايز اقعد معاكي.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: يلا نقعد؟ -->
+        <section class="final-question full-screen warm-bg">
+            <div class="content">
+                <p class="reveal text-muted">طيب...</p>
+                <h1 class="reveal massive-text">يلا نقعد سوا؟</h1>
+                
+                <div class="buttons-container reveal">
+                    <button id="yes-btn" class="primary-btn">نقعد سوا ❤️</button>
+                    <button id="no-btn" class="secondary-btn">لا</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Celebration Screen -->
+    <div id="celebration-screen" class="celebration-screen">
+        <div class="celebration-content">
+            <!-- الـ classes الخاصة بـ delay مهمة جداً لظهور الكلام بالترتيب -->
+            <p class="celeb-text delay-1">كنت مستني منك الكلمة دي.</p>
+            <p class="celeb-text delay-2">تعالي نقعد.</p>
+            <p class="celeb-text delay-3">من غير ما نحاول نحل كل حاجة في دقيقة.</p>
+            <p class="celeb-text delay-4">بس نقعد. نتكلم. نسمع بعض. نحكي.</p>
+            <p class="celeb-text delay-5">ونفتكر ان احنا مش ضد بعض.</p>
+            <p class="celeb-text delay-6">احنا الاتنين في نفس المكان.</p>
+            <div class="heart-icon">❤️</div>
+            <button id="return-btn" class="return-btn">رجوع</button>
+        </div>
+    </div>
+
+    <!-- Messages Container for the NO button -->
+    <div id="toast-container"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
