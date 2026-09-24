@@ -86,6 +86,20 @@ p {
 .minimal-clean { background: radial-gradient(circle, var(--bg-tertiary) 0%, var(--bg-primary) 100%); }
 .warm-bg { background: linear-gradient(to top, #1a1214, var(--bg-primary)); }
 
+/* إصلاح خروج الكلام خارج الشاشة في الموبايل */
+.content {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* تعديل إضافي لضمان عدم خروج أي نص أو كروت من الشاشة */
+p {
+    width: 100%;
+    word-wrap: break-word;
+}
+
 /* ==================================
    Animations System
 ================================== */
